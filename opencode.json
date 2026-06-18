@@ -32,7 +32,7 @@
       "url": "https://stitch.googleapis.com/mcp",
       "headers": {
         "Accept": "application/json",
-        "X-Goog-Api-Key": "AQ.Ab8RN6LvJC2OJJvC4JMpg4tGn6y-wBPt4wNB-NfiJ3z7_ObKEA"
+        "X-Goog-Api-Key": "YOUR_API_KEY_HERE"
       }
     }
   }
