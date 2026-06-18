@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rallenson Silva | Portfólio</title>
-  <meta name="description" content="Portfólio pessoal de Rallenson Silva - Desenvolvedor Full Stack" />
+  <title>Rallenson Silva — Desenvolvedor Full Stack</title>
+  <meta name="description" content="Portfólio de Rallenson Silva — Desenvolvedor Full Stack" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,22 +13,8 @@
 <body>
   <nav class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#hero" class="nav-logo">
-        <svg class="duck-icon" viewBox="0 0 100 100" width="32" height="32">
-          <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-          <ellipse cx="48" cy="60" rx="22" ry="15" fill="#FF69B4" opacity="0.3"/>
-          <circle cx="50" cy="38" r="15" fill="#7B2D8E"/>
-          <circle cx="50" cy="38" r="12" fill="#4A90D9" opacity="0.4"/>
-          <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-          <circle cx="55" cy="34" r="1.5" fill="#FFD700"/>
-          <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-          <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-          <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-          <ellipse cx="33" cy="60" rx="10" ry="5" fill="#7B2D8E" transform="rotate(-30 33 60)"/>
-        </svg>
-        Rallenson
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+      <a href="#hero" class="nav-logo">Rallenson</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -44,75 +30,67 @@
     <section class="hero" id="hero">
       <div class="hero-bg"></div>
       <div class="container hero-content">
-        <div class="hero-mascot">
-          <svg class="duck-hero" viewBox="0 0 200 200" width="120" height="120">
-            <ellipse cx="100" cy="130" rx="50" ry="35" fill="#7B2D8E"/>
-            <ellipse cx="96" cy="120" rx="44" ry="30" fill="#FF69B4" opacity="0.2"/>
-            <circle cx="100" cy="76" r="30" fill="#7B2D8E"/>
-            <circle cx="100" cy="76" r="24" fill="#4A90D9" opacity="0.3"/>
-            <circle cx="110" cy="68" r="6" fill="#1a1a2e"/>
-            <circle cx="110" cy="68" r="3" fill="#FFD700"/>
-            <ellipse cx="124" cy="80" rx="16" ry="6" fill="#E2725B" transform="rotate(-15 124 80)"/>
-            <ellipse cx="96" cy="160" rx="16" ry="24" fill="#7B2D8E"/>
-            <ellipse cx="104" cy="160" rx="16" ry="24" fill="#7B2D8E"/>
-            <ellipse cx="66" cy="120" rx="20" ry="10" fill="#7B2D8E" transform="rotate(-30 66 120)"/>
-          </svg>
-        </div>
-        <div class="hero-text">
-          <p class="hero-greeting fade-in-up">Olá, eu sou</p>
-          <h1 class="hero-name fade-in-up">Rallenson Silva</h1>
-          <p class="hero-title fade-in-up">Desenvolvedor Full Stack</p>
-          <p class="hero-subtitle fade-in-up">Transformando ideias em soluções digitais</p>
-          <div class="hero-actions fade-in-up">
-            <a href="#projects" class="btn btn-primary">Ver Projetos</a>
-            <a href="#contact" class="btn btn-secondary">Entrar em Contato</a>
+        <div class="duck-3d-wrapper" id="duck3D">
+          <div class="duck-3d-inner" id="duckInner">
+            <div class="duck-body duck-layer-0">
+              <svg viewBox="0 0 200 200" width="200" height="200">
+                <ellipse cx="100" cy="130" rx="55" ry="40" fill="#7B2D8E"/>
+                <ellipse cx="100" cy="76" r="32" fill="#7B2D8E"/>
+                <ellipse cx="68" cy="120" rx="22" ry="12" fill="#7B2D8E" transform="rotate(-30 68 120)"/>
+              </svg>
+            </div>
+            <div class="duck-highlights duck-layer-1">
+              <svg viewBox="0 0 200 200" width="200" height="200">
+                <ellipse cx="96" cy="120" rx="48" ry="34" fill="#FF69B4" opacity="0.2"/>
+                <circle cx="100" cy="76" r="26" fill="#4A90D9" opacity="0.3"/>
+                <ellipse cx="96" cy="164" rx="18" ry="28" fill="#7B2D8E"/>
+                <ellipse cx="104" cy="164" rx="18" ry="28" fill="#7B2D8E"/>
+              </svg>
+            </div>
+            <div class="duck-eye duck-layer-2">
+              <svg viewBox="0 0 200 200" width="200" height="200">
+                <circle cx="108" cy="70" r="8" fill="#1a1a2e"/>
+                <circle cx="112" cy="68" r="4" fill="#FFD700"/>
+              </svg>
+            </div>
+            <div class="duck-beak duck-layer-1">
+              <svg viewBox="0 0 200 200" width="200" height="200">
+                <ellipse cx="128" cy="84" rx="18" ry="7" fill="#E2725B" transform="rotate(-15 128 84)"/>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <span></span>
+        <div class="hero-text">
+          <h1 class="hero-name">Rallenson Silva</h1>
+          <p class="hero-title">Desenvolvedor Full Stack</p>
+          <p class="hero-subtitle">Transformo ideias em soluções digitais com código limpo e design de impacto.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+            <a href="#contact" class="btn btn-secondary">Contato</a>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="about" id="about">
       <div class="container">
-        <div class="section-header fade-in-up">
-          <svg class="duck-icon-section" viewBox="0 0 100 100" width="28" height="28">
-            <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-            <circle cx="50" cy="38" r="15" fill="#FFD700"/>
-            <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-            <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-            <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-            <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-          </svg>
-          <h2>Sobre Mim</h2>
+        <div class="section-header">
+          <span class="section-label">SOBRE</span>
+          <h2>Quem sou</h2>
         </div>
         <div class="about-content">
-          <div class="about-text fade-in-up">
+          <div class="about-text">
             <p>
-              Me chamo <strong>Gustavo Ralleenson Gonçalves da Silva</strong>, mas pode me chamar de
-              <strong>Rallenson Silva</strong>. Sou desenvolvedor em <strong>Volta Redonda - RJ</strong>
-              e atualmente faço parte do time da <strong>@INNOVUS</strong>.
+              Me chamo <strong>Rallenson Silva</strong> e sou desenvolvedor em <strong>Volta Redonda — RJ</strong>.
+              Atualmente no time da <strong>@INNOVUS</strong>, trabalho com desenvolvimento full stack
+              criando aplicações web que unem performance, estética e boas práticas.
             </p>
             <p>
-              Apaixonado por tecnologia e por transformar linhas de código em experiências incríveis.
-              Trabalho com desenvolvimento full stack, sempre buscando equilíbrio entre performance,
-              estética e boas práticas.
-            </p>
-            <p class="about-duck-note">
-              <svg class="duck-icon-small" viewBox="0 0 100 100" width="18" height="18">
-                <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-                <circle cx="50" cy="38" r="15" fill="#FF69B4"/>
-                <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-                <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-                <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-                <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-              </svg>
-              Conhecido como "Vírus do Pato" — o pato é minha marca registrada!
+              Tenho experiência com HTML, CSS, JavaScript, TypeScript, React, PHP, Laravel, Python,
+              Django, C#, ASP.NET e SQL — sempre buscando a ferramenta certa para cada desafio.
             </p>
           </div>
-          <div class="about-skills fade-in-up">
-            <h3>Minhas Skills</h3>
+          <div class="about-skills">
             <div class="skills-grid">
               <span class="skill-tag">HTML5</span>
               <span class="skill-tag">CSS3</span>
@@ -136,67 +114,41 @@
 
     <section class="projects" id="projects">
       <div class="container">
-        <div class="section-header fade-in-up">
-          <svg class="duck-icon-section" viewBox="0 0 100 100" width="28" height="28">
-            <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-            <circle cx="50" cy="38" r="15" fill="#FFD700"/>
-            <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-            <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-            <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-            <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-          </svg>
+        <div class="section-header">
+          <span class="section-label">TRABALHOS</span>
           <h2>Projetos</h2>
         </div>
-        <div class="projects-grid" id="projectsGrid">
-        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
       </div>
     </section>
 
     <section class="contact" id="contact">
       <div class="container">
-        <div class="section-header fade-in-up">
-          <svg class="duck-icon-section" viewBox="0 0 100 100" width="28" height="28">
-            <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-            <circle cx="50" cy="38" r="15" fill="#FF69B4"/>
-            <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-            <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-            <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-            <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-          </svg>
-          <h2>Vamos Conversar?</h2>
+        <div class="section-header">
+          <span class="section-label">CONTATO</span>
+          <h2>Vamos conversar</h2>
         </div>
         <div class="contact-content">
-          <div class="contact-info fade-in-up">
-            <svg class="duck-contact" viewBox="0 0 100 100" width="80" height="80">
-              <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-              <circle cx="50" cy="38" r="15" fill="#FFD700"/>
-              <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-              <circle cx="55" cy="34" r="1.5" fill="#FF69B4"/>
-              <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-              <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-              <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-            </svg>
-            <p class="contact-message">Tem um projeto em mente? Vamos transformar ideias em realidade!</p>
+          <div class="contact-info">
+            <p class="contact-message">
+              Tem um projeto em mente? Vou adorar saber mais sobre ele.
+            </p>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/r90ur7" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
-                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-                LinkedIn
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                <span>LinkedIn</span>
               </a>
               <a href="https://github.com/r90ur7" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
-                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-                GitHub
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>GitHub</span>
               </a>
               <a href="mailto:r90ur7@example.com" class="social-link" title="Email">
-                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                Email
-              </a>
-              <a href="https://wa.me/5524999999999" target="_blank" rel="noopener noreferrer" class="social-link" title="WhatsApp">
-                <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.09.56 4.05 1.62 5.79L2 22l4.47-1.69a9.88 9.88 0 0 0 5.57 1.7c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.82 14.06c-.26.73-1.32 1.42-2.16 1.6-.57.12-1.32.22-3.82-.82-3.2-1.33-5.26-4.61-5.42-4.82-.17-.21-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.63-.4.84-.4.21 0 .42 0 .6.01.19.01.51-.08.8.61.29.69.99 2.38 1.08 2.56.09.17.14.38.04.61-.1.23-.16.38-.3.59-.15.2-.29.36-.44.57-.14.2-.28.39-.12.75.16.36.71 1.17 1.52 1.9 1.04.94 1.92 1.23 2.19 1.37.27.14.43.11.59-.07.16-.18.69-.81.88-1.09.19-.28.38-.23.64-.14.26.09 1.65.81 1.93.96.28.15.47.22.54.35.08.14.08.77-.18 1.5z"/></svg>
-                WhatsApp
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>Email</span>
               </a>
             </div>
           </div>
-          <form class="contact-form fade-in-up" id="contactForm" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
             <div class="form-group">
               <label for="name">Nome</label>
               <input type="text" id="name" name="name" placeholder="Seu nome" required />
@@ -207,9 +159,9 @@
             </div>
             <div class="form-group">
               <label for="message">Mensagem</label>
-              <textarea id="message" name="message" rows="5" placeholder="Sua mensagem..." required></textarea>
+              <textarea id="message" name="message" rows="4" placeholder="Sua mensagem..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">Enviar Mensagem</button>
+            <button type="submit" class="btn btn-primary btn-submit">Enviar</button>
             <p class="form-status" id="formStatus"></p>
           </form>
         </div>
@@ -219,17 +171,7 @@
 
   <footer class="footer">
     <div class="container footer-content">
-      <div class="footer-mascot">
-        <svg class="duck-icon-footer" viewBox="0 0 100 100" width="24" height="24">
-          <ellipse cx="50" cy="65" rx="25" ry="18" fill="#7B2D8E"/>
-          <circle cx="50" cy="38" r="15" fill="#FFD700"/>
-          <circle cx="55" cy="34" r="3" fill="#1a1a2e"/>
-          <ellipse cx="62" cy="40" rx="8" ry="3" fill="#E2725B" transform="rotate(-15 62 40)"/>
-          <ellipse cx="48" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-          <ellipse cx="52" cy="80" rx="8" ry="12" fill="#7B2D8E"/>
-        </svg>
-        <span>&copy; 2026 Rallenson Silva — Feito com <span class="footer-heart">&hearts;</span> e muitos patos</span>
-      </div>
+      <span>&copy; 2026 Rallenson Silva</span>
     </div>
   </footer>
 
