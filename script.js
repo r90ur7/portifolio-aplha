@@ -50,25 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
   setupContactForm();
   setupNavbarScroll();
   setupDuck3D();
+  initGlobe();
 });
 
 function renderProjects() {
   const grid = document.getElementById("projectsGrid");
 
-  projects.forEach((p) => {
+  projects.forEach((p, i) => {
     const initial = p.name.charAt(0).toUpperCase();
-
     const card = document.createElement("div");
     card.className = "project-card fade-in-up";
+    card.style.transitionDelay = `${i * 0.08}s`;
 
     const hasDemo = p.demo && p.demo.length > 0;
 
     card.innerHTML = `
       <div class="project-card-header">
         <div class="project-card-icon">${initial}</div>
-        <div>
-          <h3>${p.name}</h3>
-        </div>
+        <div><h3>${p.name}</h3></div>
       </div>
       <p>${p.description}</p>
       <div class="project-tags">
@@ -118,7 +117,7 @@ function setupScrollAnimations() {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.08 }
   );
 
   document.querySelectorAll(".fade-in-up").forEach((el) => observer.observe(el));
@@ -156,33 +155,217 @@ function setupContactForm() {
 
 function setupNavbarScroll() {
   const navbar = document.getElementById("navbar");
-
   window.addEventListener("scroll", () => {
     navbar.classList.toggle("scrolled", window.scrollY > 50);
   });
 }
 
 function setupDuck3D() {
-  const wrapper = document.getElementById("duck3D");
+  const hero = document.querySelector(".hero");
   const inner = document.getElementById("duckInner");
+  if (!hero || !inner) return;
 
-  if (!wrapper || !inner) return;
+  let targetX = 0, targetY = 0;
+  let currentX = 0, currentY = 0;
 
-  wrapper.addEventListener("mousemove", (e) => {
-    const rect = wrapper.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+  hero.addEventListener("mousemove", (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = ((e.clientY - rect.top) / rect.height) * 2 - 1;
+    targetX = x * 25;
+    targetY = y * -18;
+  });
 
-    const rotateX = ((y - centerY) / centerY) * -20;
-    const rotateY = ((x - centerX) / centerX) * 20;
+  hero.addEventListener("mouseleave", () => {
+    targetX = 0;
+    targetY = 0;
+  });
+
+  function animate() {
+    currentX += (targetX - currentX) * 0.08;
+    currentY += (targetY - currentY) * 0.08;
 
     inner.style.transform =
-      `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      `rotateX(${currentY}deg) rotateY(${currentX}deg)`;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+function initGlobe() {
+  const canvas = document.getElementById("globeCanvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let w, h;
+  const dots = [];
+  const DOT_COUNT = 180;
+  let mouseX = 0, mouseY = 0;
+  let rotX = 0, rotY = 0;
+  let targetRotX = 0, targetRotY = 0;
+
+  class Dot {
+    constructor() {
+      this.theta = Math.random() * Math.PI * 2;
+      this.phi = Math.acos(2 * Math.random() - 1);
+      this.r = 1;
+      this.baseX = 0;
+      this.baseY = 0;
+      this.baseZ = 0;
+      this.screenX = 0;
+      this.screenY = 0;
+    }
+
+    project(rotX, rotY) {
+      const cx = Math.sin(this.phi) * Math.cos(this.theta);
+      const cy = Math.sin(this.phi) * Math.sin(this.theta);
+      const cz = Math.cos(this.phi);
+
+      const rx = cx;
+      const ry = cy * Math.cos(rotX) - cz * Math.sin(rotX);
+      const rz = cy * Math.sin(rotX) + cz * Math.cos(rotX);
+
+      const rxz = rx * Math.cos(rotY) + rz * Math.sin(rotY);
+      const ryz = ry;
+      const rzz = -rx * Math.sin(rotY) + rz * Math.cos(rotY);
+
+      this.baseX = rxz;
+      this.baseY = ryz;
+      this.baseZ = rzz;
+
+      const scale = 200 / (200 + rzz * w * 0.4);
+      this.screenX = w / 2 + rxz * w * 0.35 * scale;
+      this.screenY = h / 2 + ryz * w * 0.35 * scale;
+      this.size = scale * 1.5;
+      this.z = rzz;
+    }
+  }
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    w = canvas.width = rect.width * devicePixelRatio;
+    h = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width = rect.width + "px";
+    canvas.style.height = rect.height + "px";
+  }
+
+  for (let i = 0; i < DOT_COUNT; i++) {
+    dots.push(new Dot());
+  }
+
+  function drawGlobe() {
+    ctx.clearRect(0, 0, w, h);
+
+    rotX += (targetRotX - rotX) * 0.05;
+    rotY += (targetRotY - rotY) * 0.05;
+
+    rotY += 0.003;
+
+    dots.forEach((d) => d.project(rotX, rotY));
+
+    dots.sort((a, b) => a.z - b.z);
+
+    const grad = ctx.createRadialGradient(w * 0.5, h * 0.5, 0, w * 0.5, h * 0.5, w * 0.4);
+    grad.addColorStop(0, "rgba(123,45,142,0.06)");
+    grad.addColorStop(0.5, "rgba(74,144,217,0.04)");
+    grad.addColorStop(1, "rgba(10,10,20,0)");
+
+    ctx.beginPath();
+    ctx.arc(w / 2, h / 2, w * 0.35, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    for (let i = 0; i < dots.length; i++) {
+      const d = dots[i];
+      const alpha = (d.z + 1) / 2 * 0.9;
+
+      ctx.beginPath();
+      ctx.arc(d.screenX, d.screenY, Math.max(d.size, 1), 0, Math.PI * 2);
+
+      const hue = d.z > 0 ? "255,105,180" : "123,45,142";
+      ctx.fillStyle = `rgba(${hue},${alpha * 0.8})`;
+      ctx.fill();
+
+      if (d.z > 0) {
+        ctx.shadowColor = "rgba(123,45,142,0.15)";
+        ctx.shadowBlur = 4;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    ctx.strokeStyle = "rgba(123,45,142,0.06)";
+    ctx.lineWidth = 0.5;
+
+    for (let lat = 0; lat < 12; lat++) {
+      ctx.beginPath();
+      for (let lng = 0; lng <= 36; lng++) {
+        const theta = (lng / 36) * Math.PI * 2;
+        const phi = (lat / 12) * Math.PI;
+        const x = Math.sin(phi) * Math.cos(theta);
+        const y = Math.sin(phi) * Math.sin(theta);
+        const z = Math.cos(phi);
+
+        const rx = x;
+        const ry = y * Math.cos(rotX) - z * Math.sin(rotX);
+        const rz = y * Math.sin(rotX) + z * Math.cos(rotX);
+        const rxz = rx * Math.cos(rotY) + rz * Math.sin(rotY);
+        const ryz = ry;
+        const rzz = -rx * Math.sin(rotY) + rz * Math.cos(rotY);
+
+        if (rzz < 0) continue;
+
+        const scale = 200 / (200 + rzz * w * 0.4);
+        const sx = w / 2 + rxz * w * 0.35 * scale;
+        const sy = h / 2 + ryz * w * 0.35 * scale;
+
+        if (lng === 0) ctx.moveTo(sx, sy);
+        else ctx.lineTo(sx, sy);
+      }
+      ctx.stroke();
+    }
+
+    for (let lng = 0; lng < 18; lng++) {
+      ctx.beginPath();
+      for (let lat = 0; lat <= 24; lat++) {
+        const theta = (lng / 18) * Math.PI * 2;
+        const phi = (lat / 24) * Math.PI;
+        const x = Math.sin(phi) * Math.cos(theta);
+        const y = Math.sin(phi) * Math.sin(theta);
+        const z = Math.cos(phi);
+
+        const rx = x;
+        const ry = y * Math.cos(rotX) - z * Math.sin(rotX);
+        const rz = y * Math.sin(rotX) + z * Math.cos(rotX);
+        const rxz = rx * Math.cos(rotY) + rz * Math.sin(rotY);
+        const ryz = ry;
+        const rzz = -rx * Math.sin(rotY) + rz * Math.cos(rotY);
+
+        if (rzz < 0) continue;
+
+        const scale = 200 / (200 + rzz * w * 0.4);
+        const sx = w / 2 + rxz * w * 0.35 * scale;
+        const sy = h / 2 + ryz * w * 0.35 * scale;
+
+        if (lat === 0) ctx.moveTo(sx, sy);
+        else ctx.lineTo(sx, sy);
+      }
+      ctx.stroke();
+    }
+
+    requestAnimationFrame(drawGlobe);
+  }
+
+  document.querySelector(".contact").addEventListener("mousemove", (e) => {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    targetRotX = ((e.clientY - rect.top) / rect.height - 0.5) * 0.6;
+    targetRotY = ((e.clientX - rect.left) / rect.width - 0.5) * 0.6;
   });
 
-  wrapper.addEventListener("mouseleave", () => {
-    inner.style.transform = "rotateX(0deg) rotateY(0deg)";
-  });
+  resize();
+  drawGlobe();
+
+  window.addEventListener("resize", resize);
 }
