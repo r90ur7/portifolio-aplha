@@ -19,7 +19,7 @@ Portfólio pessoal de **Rallenson Silva** — Desenvolvedor Full Stack. Projeto 
 |---|---|
 | **HTML5** | Estrutura semântica (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`) |
 | **CSS3** | Estilização com variáveis, Flexbox, Grid, animações `@keyframes` e media queries |
-| **JavaScript** | DOM API, Intersection Observer, formulário, navegação mobile |
+| **JavaScript** | API, Intersection Observer, formulário, navegação mobile |
 | **Google Fonts** | Playfair Display (headings) + Inter (body) |
 | **Formspree** | Backend do formulário de contato |
 | **GitHub Pages** | Hospedagem gratuita |
