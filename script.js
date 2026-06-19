@@ -92,10 +92,12 @@ function renderProjects() {
 
 function setupNavToggle() {
   const toggle = document.getElementById("navToggle");
-  const links = document.getElementById("navLinks");
+  const links = document.querySelector(".nav-links");
   const navLinkItems = document.querySelectorAll(".nav-link");
 
   toggle.addEventListener("click", () => {
+    const expanded = toggle.getAttribute("aria-expanded") === "true" ? "false" : "true";
+    toggle.setAttribute("aria-expanded", expanded);
     toggle.classList.toggle("active");
     links.classList.toggle("open");
   });
@@ -103,6 +105,7 @@ function setupNavToggle() {
   navLinkItems.forEach((link) => {
     link.addEventListener("click", () => {
       toggle.classList.remove("active");
+      toggle.setAttribute("aria-expanded", "false");
       links.classList.remove("open");
     });
   });

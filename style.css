@@ -622,6 +622,15 @@ section {
   font-size: 0.8rem;
 }
 
+.footer-link {
+  color: var(--purple);
+  transition: var(--transition);
+}
+
+.footer-link:hover {
+  color: var(--pink);
+}
+
 /* ===== ANIMATIONS (Stripe-style) ===== */
 .fade-in-up {
   opacity: 0;
