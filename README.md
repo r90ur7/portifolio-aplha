@@ -7,7 +7,7 @@
 
 Portfólio pessoal de **Rallenson Silva** — Desenvolvedor Full Stack. Projeto construído do absoluto zero com HTML, CSS e JavaScript puros, seguindo boas práticas de semântica, responsividade e performance.
 
-**Link em produção:** https://r90ur7.github.io/Portifolio
+**Link em produção:** [https://r90ur7.github.io/Portifolio](https://r90ur7.github.io/portifolio-aplha/)
 
 ---
 
