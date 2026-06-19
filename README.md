@@ -13,8 +13,6 @@ Portfólio pessoal de **Rallenson Silva** — Desenvolvedor Full Stack. Projeto 
 
 ## Status
 
-Em desenvolvimento — Entrega prevista para breve.
-
 ## Tecnologias Utilizadas
 
 | Tecnologia | Finalidade |
